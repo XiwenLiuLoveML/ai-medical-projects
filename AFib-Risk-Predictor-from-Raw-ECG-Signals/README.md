@@ -1,0 +1,1 @@
+This project explores the use of deep learning models to assess atrial fibrillation (AFib) risk based on raw ECG waveform data. It focuses on building an end-to-end signal processing and classification pipeline using real-world ECG inputs.
