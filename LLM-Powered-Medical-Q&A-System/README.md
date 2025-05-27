@@ -34,7 +34,7 @@ medical-llm-qa-demo/
 
 ---
 
-## 👩‍⚕️ Sample Use Case (for HR/Managers)
+## 👩‍⚕️ Sample Use Case 
 
 > Imagine a hospital integrating an internal AI assistant to answer staff or patient questions such as:
 > - “What are the side effects of metformin?”
@@ -53,6 +53,6 @@ This project is a simplified backend simulating that assistant.
 
 ## 🙋 About the Author
 
-This project was created by an applied AI consultant and product strategist with hands-on experience in deploying LLM-powered systems in real-world healthcare and industrial settings.
+This project was created by an AI engineer and strategist with hands-on experience in deploying LLM-powered systems in real-world healthcare and industrial settings.
 
 For business collaboration or detailed technical review, please feel free to [connect on LinkedIn] or [request access to `ai-private-core`].
