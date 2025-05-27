@@ -45,7 +45,7 @@ This project is a simplified backend simulating that assistant.
 
 ---
 
-## 📌 Keywords (for recruiters)
+## 📌 Keywords
 
 `LLM`, `Healthcare AI`, `Chatbot`, `FastAPI`, `Streaming`, `SSE`, `Medical NLP`, `Python Backend`, `Scalable Architecture`, `Singapore AI Talent`
 
