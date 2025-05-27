@@ -1,0 +1,24 @@
+# === FastAPI Framework and Async Server ===
+fastapi[all]             # Modern, fast (async) Python web framework
+uvicorn                  # ASGI server to run FastAPI apps
+
+# === Authentication and Security ===
+bcrypt                   # Password hashing
+python-jose              # JWT token authentication
+
+# === Pagination and Utilities ===
+fastapi-pagination       # Add pagination to FastAPI responses
+
+# === Logging and Monitoring ===
+loguru                   # Elegant logging library
+
+# === LLM Interaction and SSE (Stream) ===
+httpx                    # Async HTTP client for model inference API calls
+sse-starlette            # Server-sent events support for real-time response
+
+# === Medical NLP / Placeholder for Future Enhancements ===
+# e.g. transformers, langchain, etc.
+# Not included here for simplicity, refer to private repo for full logic
+
+# === Optional: File handling / RAG / Doc processing (omitted) ===
+# openpyxl, langchain, unstructured, etc. used in ai-private-core
