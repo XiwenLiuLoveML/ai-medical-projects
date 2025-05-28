@@ -14,6 +14,7 @@ This project demonstrates the core architecture of a **Large Language Model (LLM
 - 🧠 **Session Management**: multi-turn conversations supported
 - 🔧 **Production-style FastAPI backend**: cleanly separated modules for middleware, routers, and logging
 - 🏥 **Healthcare Application Scenario**: designed for clinical decision support and patient education
+- 🛡️ **System Management Modules**: emulating a real-world multi-role backend system for hospitals or research labs
 
 ---
 
@@ -21,19 +22,27 @@ This project demonstrates the core architecture of a **Large Language Model (LLM
 
 ```
 LLM-Powered-Medical-Q&A-System/
-├── README.md                ← This file
-├── requirements.txt         ← Dependencies with categories
-├── main.py                  ← Entry point
+├── README.md                      # Project overview and documentation
+├── requirements.txt              # Python dependencies for the system
+├── main.py                       # FastAPI application entry point
 ├── core/
-│   └── registrar.py         ← Middleware, routers, logging registration
+│   └── registrar.py               # Middleware, routers, and logging registration
 ├── app/
-│   ├── router.py            ← Route definitions
+│   ├── router.py                  # Root route registry
 │   └── admin/
 │       └── api/
-│           ├── llm.py           ← Chat, stream, session APIs for LLM interaction
-│           ├── knowledge.py     ← Knowledge base APIs (public version, safe to showcase)
-│           └── auth.py          ← Authentication routes (public version, simplified for demo)
-
+│           ├── llm.py              # Chat, stream, session APIs for LLM interaction
+│           ├── knowledge.py        # Knowledge base APIs (public version)
+│           ├── auth.py             # Authentication routes (simplified)
+│           ├── login_log.py        # User login activity tracking
+│           ├── opera_log.py        # Operation history logging (e.g., updates, deletions)
+│           ├── sys_config.py       # System-wide configs like user protocols and site info
+│           ├── sys_dept.py         # Department (e.g. medical units) management
+│           ├── sys_dict_data.py    # Dictionary entries (e.g. disease stages, genders)
+│           ├── sys_dict_type.py    # Dictionary categories (grouping dictionary items)
+│           ├── sys_menu.py         # Sidebar/menu configuration
+│           ├── sys_role.py         # Role management and permissions
+│           └── sys_user.py         # User profile, password, role, and permission APIs
 ```
 
 ---
@@ -59,4 +68,4 @@ This project is a simplified backend simulating that assistant.
 
 This project was created by an AI engineer and strategist with hands-on experience in deploying LLM-powered systems in real-world healthcare and industrial settings.
 
-For business collaboration or detailed technical review, please feel free to [connect on LinkedIn] or [request access to `ai-private-core`].
+For business collaboration or detailed technical review, please feel free to [connect on LinkedIn](https://www.linkedin.com/in/liuxiwen/) or [request access to `ai-private-core`].
