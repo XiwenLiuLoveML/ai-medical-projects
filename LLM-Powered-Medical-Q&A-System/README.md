@@ -31,8 +31,8 @@ LLM-Powered-Medical-Q&A-System/
 │   └── admin/
 │       └── api/
 │           ├── llm.py           ← Chat, stream, session APIs for LLM interaction
-│           ├── med_knowledge.py   ← Knowledge base APIs (public version, safe to showcase)
-│           └── med_auth.py        ← Authentication routes (public version, simplified for demo)
+│           ├── knowledge.py     ← Knowledge base APIs (public version, safe to showcase)
+│           └── auth.py          ← Authentication routes (public version, simplified for demo)
 
 ```
 
