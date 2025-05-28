@@ -20,7 +20,7 @@ This project demonstrates the core architecture of a **Large Language Model (LLM
 ## 📂 Project Structure
 
 ```
-medical-llm-qa-demo/
+LLM-Powered-Medical-Q&A-System/
 ├── README.md                ← This file
 ├── requirements.txt         ← Dependencies with categories
 ├── main.py                  ← Entry point
@@ -28,8 +28,12 @@ medical-llm-qa-demo/
 │   └── registrar.py         ← Middleware, routers, logging registration
 ├── app/
 │   ├── router.py            ← Route definitions
-│   └── api/
-│       └── llm.py           ← Chat, stream, session APIs for LLM interaction
+│   └── admin/
+│       └── api/
+│           ├── llm.py           ← Chat, stream, session APIs for LLM interaction
+│           ├── med_knowledge.py   ← Knowledge base APIs (public version, safe to showcase)
+│           └── med_auth.py        ← Authentication routes (public version, simplified for demo)
+
 ```
 
 ---
