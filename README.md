@@ -3,6 +3,6 @@ A collection of applied AI healthcare projects, from post-operative monitoring t
 
 ## 📁 Featured Modules
 
-- [LLM-powered Medical Q&A (Demo)](./medical-llm-qa-demo)  
+- [LLM-powered Medical Q&A (Demo)](./LLM-powered-Medical-Q&A-system)  
   *Streaming chatbot API + multi-turn session backend with FastAPI*
 
