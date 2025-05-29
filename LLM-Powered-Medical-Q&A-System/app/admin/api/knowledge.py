@@ -9,61 +9,65 @@ Main Features:
 - Upload, update, and delete medical documents
 - Public-safe annotations only; internal business logic abstracted
 
+🔗 Related Components:
+- knowledge_base_service: Handles CRUD logic for knowledge base
+- chat_file_service: Handles file upload and file metadata operations
+- schema.knowledge: Pydantic models for request/response
+
 This demo is part of the ongoing AI for Medicine showcase.
 Full backend logic is implemented privately in `ai-private-core`
 """
 
-from typing import Annotated, Optional
 
-from fastapi import APIRouter, Request, UploadFile, File, Path, Query
-from pydantic import BaseModel
+from typing import Annotated
+
+from fastapi import APIRouter, Request, Path, UploadFile, File
+
+from app.admin.service.knowledge_service import knowledge_base_service
+from app.admin.service.llm_service import chat_file_service
+from app.admin.schema.knowledge import (
+    KnowledgeBaseCreateSchema,
+    KnowledgeBaseUpdateSchema,
+    KnowledgeBaseDeleteSchema,
+    UpdateFileSchemaParam,
+    KBFileSchema,
+)
 
 router = APIRouter()
 
+# Create a new knowledge base
+@router.post('/base/create')
+async def create_knowledge_base(request: Request, obj: KnowledgeBaseCreateSchema):
+    knowledge_base = await knowledge_base_service.create_base(obj=obj, user_id=request.user.id)
+    return {"success": True, "data": knowledge_base}
 
-# Dummy response schema for public API example
-def success_response(data=None):
-    return {"code": 200, "data": data or "success"}
+# Update a knowledge base
+@router.put('/base/update')
+async def update_knowledge_base(request: Request, obj: KnowledgeBaseUpdateSchema):
+    await knowledge_base_service.update_base(obj=obj, user_id=request.user.id)
+    return {"success": True}
 
+# Delete a knowledge base
+@router.delete('/base/delete')
+async def delete_knowledge_base(request: Request, obj: KnowledgeBaseDeleteSchema):
+    await knowledge_base_service.delete_base(obj=obj, user_id=request.user.id)
+    return {"success": True}
 
-class FileMetadata(BaseModel):
-    file_id: int
-    name: str
-    tags: Optional[list[str]] = []
+# Upload file to a knowledge base
+@router.post('/base/{kb_id}/upload')
+async def upload_file_to_kb(request: Request, kb_id: Annotated[int, Path(...)], file: UploadFile = File(...)):
+    await chat_file_service.upload_knowledge_file(request.user.id, kb_id, file)
+    return {"success": True}
 
+# Update file info
+@router.put('/base/file')
+async def update_file_info(request: Request, obj: UpdateFileSchemaParam):
+    await chat_file_service.update_file_info(request.user.id, obj=obj)
+    return {"success": True}
 
-# List all medical knowledge base entries
-@router.get("/kb/all", summary="List all medical knowledge bases")
-async def list_knowledge_bases(request: Request):
-    return success_response(data=[{"id": 1, "name": "Cardiology Protocols"}])
+# Delete a file from knowledge base
+@router.delete('/base/file')
+async def delete_file(request: Request, obj: KBFileSchema):
+    await knowledge_base_service.delete_file(obj.kb_id, obj.file_id, request.user.id)
+    return {"success": True}
 
-
-# Upload a document to a knowledge base
-@router.post("/kb/{kb_id}/upload", summary="Upload document to medical knowledge base")
-async def upload_document(
-    kb_id: Annotated[int, Path(...)],
-    file: UploadFile = File(...),
-):
-    # Demo only: in real system, this file will be embedded for LLM use
-    return success_response()
-
-
-# List files under a knowledge base
-@router.get("/kb/{kb_id}/files", summary="List uploaded documents")
-async def list_documents(
-    kb_id: Annotated[int, Path(...)],
-    search: Annotated[Optional[str], Query(description="Search file name or content")] = None,
-):
-    return success_response(data=[{"file_id": 101, "name": "Discharge Instructions.pdf"}])
-
-
-# Modify file metadata
-@router.put("/kb/file", summary="Update file metadata")
-async def update_file_metadata(file_info: FileMetadata):
-    return success_response()
-
-
-# Delete a file from the knowledge base
-@router.delete("/kb/file", summary="Delete document from KB")
-async def delete_file(file_info: FileMetadata):
-    return success_response()
