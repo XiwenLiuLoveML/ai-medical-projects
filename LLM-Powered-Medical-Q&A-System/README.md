@@ -22,27 +22,36 @@ This project demonstrates the core architecture of a **Large Language Model (LLM
 
 ```
 LLM-Powered-Medical-Q&A-System/
-├── README.md                      # Project overview and documentation
-├── requirements.txt              # Python dependencies for the system
-├── main.py                       # FastAPI application entry point
+├── README.md # Project overview and documentation
+├── requirements.txt # Python dependencies for the system
+├── main.py # FastAPI application entry point
 ├── core/
-│   └── registrar.py               # Middleware, routers, and logging registration
+│ └── registrar.py # Middleware, routers, and logging registration
+├── config/
+│ └── settings.py # Global environment configuration (simplified public version)
+├── dataclass/
+│ └── common.py # Shared data objects (e.g., IP info, token result, request context)
 ├── app/
-│   ├── router.py                  # Root route registry
-│   └── admin/
-│       └── api/
-│           ├── llm.py              # Chat, stream, session APIs for LLM interaction
-│           ├── knowledge.py        # Knowledge base APIs (public version)
-│           ├── auth.py             # Authentication routes (simplified)
-│           ├── login_log.py        # User login activity tracking
-│           ├── opera_log.py        # Operation history logging (e.g., updates, deletions)
-│           ├── sys_config.py       # System-wide configs like user protocols and site info
-│           ├── sys_dept.py         # Department (e.g. medical units) management
-│           ├── sys_dict_data.py    # Dictionary entries (e.g. disease stages, genders)
-│           ├── sys_dict_type.py    # Dictionary categories (grouping dictionary items)
-│           ├── sys_menu.py         # Sidebar/menu configuration
-│           ├── sys_role.py         # Role management and permissions
-│           └── sys_user.py         # User profile, password, role, and permission APIs
+│ ├── router.py # Root route registry
+│ ├── schema/
+│ │ ├── token.py # Token response model schema (pydantic)
+│ │ └── login_log.py # Login log schema definitions
+│ ├── service/
+│ │ └── auth_service.py # Auth logic (token generation, refresh, login logs)
+│ └── admin/
+│ ├── api/
+│ │ ├── llm.py # Chat, stream, session APIs for LLM interaction
+│ │ ├── knowledge.py # Knowledge base APIs (public version)
+│ │ ├── auth.py # Authentication routes (simplified)
+│ │ ├── login_log.py # User login activity tracking
+│ │ ├── opera_log.py # Operation history logging (e.g., updates, deletions)
+│ │ ├── sys_config.py # System-wide configs like user protocols and site info
+│ │ ├── sys_dept.py # Department (e.g. medical units) management
+│ │ ├── sys_dict_data.py # Dictionary entries (e.g. disease stages, genders)
+│ │ ├── sys_dict_type.py # Dictionary categories (grouping dictionary items)
+│ │ ├── sys_menu.py # Sidebar/menu configuration
+│ │ ├── sys_role.py # Role management and permissions
+│ │ └── sys_user.py # User profile, password, role, and permission APIs
 ```
 
 ---
