@@ -1,7 +1,0 @@
-# Ruff is a fast Python linter and code formatter.
-# This config ensures consistent style for all contributors.
-
-line-length = 120         # Set the max line length to 120 characters for readability
-
-[format]
-quote-style = "single"    # Use single quotes for strings consistently
