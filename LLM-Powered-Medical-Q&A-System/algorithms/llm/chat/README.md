@@ -39,7 +39,7 @@ The system automatically:
 
 | File | Description |
 |------|-------------|
-| `chat.py` | Base chat logic using LangGraph + Ollama for medical Q&A |
+| `chat_base.py` | Base chat logic using LangGraph + Ollama for medical Q&A |
 | `analysis_chat.py` | File upload + AI-powered data understanding & visualization |
 | `gen_rag_graph()` | Constructs the LLM workflow graph (RAG-enabled) |
 | `ChatOllama` | Interface to LLMs like DeepSeek via local Ollama endpoint |
