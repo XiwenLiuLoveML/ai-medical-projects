@@ -6,7 +6,7 @@ This folder contains the **core conversational interfaces** for doctors and rese
 
 ## 🧑‍⚕️ Use Cases for Doctors
 
-### 1. Medical Q&A (`chat.py`)
+### 1. Medical Q&A (`chat_base.py`)
 Doctors can ask questions in natural language such as:
 
 > “Is this discharge prescription appropriate?”  
